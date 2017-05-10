@@ -1,0 +1,20 @@
+{
+  "name": "Web-two",
+  "homepage": "https://github.com/caopengxu/Web-two",
+  "authors": [
+    "caopengxu <762095508@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4"
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="two" ng-cloak>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        /*需要自己写一下（执行顺序问题）*/
+        [ng-cloak]{display: none}
+    </style>
+</head>
+<body>
+{{'hello' + 'world'}}
+
+<table border="1" ng-controller="two">
+    <tr>
+        <td>用户名</td>
+        <td><input type="text" ng-model="user.username"></td>
+    </tr>
+    <tr>
+        <td>密码</td>
+        <td><input type="password" ng-model="user.password"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="button" ng-click="login()" value="登录"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>{{message}}</td>
+    </tr>
+</table>
+
+
+<script src="bower_components/angular/angular.js"></script>
+<script>
+    var app = angular.module('two', []);
+    app.controller('two',['$scope', function ($scope) {
+//        $scope.user = {
+//            username: '',
+//            password: ''
+//        };
+
+        $scope.$watch('user.username', function (now, old) {
+            console.log(now);
+            console.log(old);
+        });
+
+        $scope.message = '请输入用户名';
+
+        $scope.login = function () {
+            console.log($scope.user);
+        };
+    }]);
+
+
+    var url = 'https://www.baidu.com:8080/aaa/1.html?id=10#name';
+    var alink = window.document.createElement('a');
+    alink.href = url;
+    console.log(alink);
+    console.log(alink.hash);
+    console.log(JSON.stringify({id:1,name:'123',age:18}));
+</script>
+</body>
+</html>
