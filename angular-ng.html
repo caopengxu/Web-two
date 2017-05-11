@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+
+    <ul ng-controller="listController">
+        <li ng-repeat="item in data" data-id="{{item.id}}">
+            <strong>{{item.name}}</strong>
+            <span>{{item.age}}</span>
+        </li>
+    </ul>
+
+
+
+<script src="bower_components/angular/angular.js"></script>
+<script>
+    angular.module('myApp', [])
+        .controller('listController', ['$scope', function ($scope) {
+            $scope.data = [];
+
+            for (var i = 0; i < 10; i++)
+            {
+                $scope.data[i] = {
+                    id:i,
+                    name:'啦啦',
+                    age:20+i
+                };
+            }
+        }]);
+</script>
+
+</body>
+</html>
